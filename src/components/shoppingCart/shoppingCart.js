@@ -4,10 +4,10 @@ import PanelHeading from "./panelHeading";
 
 export default function ShoppingCart() {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="panel panel-info">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-9">
+          <div className="panel panel-info">
             <PanelHeading />
             <PanelBody />
             <PanelFooter />
