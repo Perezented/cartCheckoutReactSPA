@@ -1,20 +1,4 @@
-import { useState } from "react";
-
-export default function AddressForm() {
-  const [addressInfo, setAddressInfo] = useState({
-    address: "",
-    address2: "",
-    country: "",
-    email: "",
-    firstName: "",
-    lastName: "",
-    "same-address": "",
-    "save-info": "",
-    state: "",
-    username: "",
-    zip: ""
-  });
-
+export default function AddressForm(props) {
   function sendAddressForm(e) {
     e.preventDefault();
     console.log("address form sent: ", addressInfo);
@@ -24,10 +8,10 @@ export default function AddressForm() {
     e.preventDefault();
 
     const updatedAddress = {
-      ...addressInfo,
+      ...props.addressInfo["addressInfo"],
       [e.target.id]: e.target.value
     };
-    return setAddressInfo(updatedAddress);
+    return props.addressInfo["setAddressInfo"](updatedAddress);
   };
   return (
     <div class="col-md-8 order-md-1">
