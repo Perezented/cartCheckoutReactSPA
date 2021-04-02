@@ -1,0 +1,19 @@
+Dear {client's name},
+
+Thank you for selecting our team to build out your online checkout portal. 
+I'm pleased to provide an update for you on the front end.
+
+The UI team has just handed us off the designs for both the checkout and cart screens. Doing just the cart and check out pages should be done within a couple of days, although hiccups may occur and I would prefer to have tests working and passing to be better safe than sorry. 
+I would say to 3-4 days is a safe number of days to expect the checkout and cart fully functional, tested, and completed.
+I will now get started on getting it connected to provide the information to the back-end servers and complete the checkout.
+There are some aspects still missing from the designs, such as the PayPal payment section and mobile/tablet views. 
+I could imagine the UI team having that ready by the time I have everything wired, but I cannot speak for their precise timeline.
+I would suggest a "More Items to Consider" section on the checkout screen to potentially get that additional purchase from a customer. Possibly a "Recently Viewed" lineup as well.
+
+
+Please let me know if there is anything else you may need or require and I would be happy to help.
+
+Thank you,
+Michael Perez
+
+
