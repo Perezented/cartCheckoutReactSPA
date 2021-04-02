@@ -3,7 +3,11 @@ export default function PanelBody() {
     <div class="panel-body">
       <div class="row">
         <div class="col-xs-2">
-          <img class="img-responsive" src="http://placehold.it/100x70" />
+          <img
+            alt="filler"
+            class="img-responsive"
+            src="http://placehold.it/100x70"
+          />
         </div>
         <div class="col-xs-4">
           <h4 class="product-name">
@@ -34,7 +38,11 @@ export default function PanelBody() {
       <hr />
       <div class="row">
         <div class="col-xs-2">
-          <img class="img-responsive" src="http://placehold.it/100x70" />
+          <img
+            alt="filler"
+            class="img-responsive"
+            src="http://placehold.it/100x70"
+          />
         </div>
         <div class="col-xs-4">
           <h4 class="product-name">
