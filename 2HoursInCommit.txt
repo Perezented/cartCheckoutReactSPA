@@ -1,0 +1,2 @@
+Two hours in, here is the git commit:
+https://github.com/Perezented/cartCheckoutReactSPA/tree/26902f02d23b3d8054cc20afae0ee8fc2bb432f4
