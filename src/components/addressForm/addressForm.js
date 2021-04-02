@@ -1,9 +1,4 @@
 export default function AddressForm(props) {
-  function sendAddressForm(e) {
-    e.preventDefault();
-    console.log("address form sent: ", addressInfo);
-  }
-
   const handleChanges = (e) => {
     e.preventDefault();
 
@@ -17,11 +12,7 @@ export default function AddressForm(props) {
     <div className="container">
       <div className="col-md-9 order-md-1">
         <h4 className="mb-3">Billing address</h4>
-        <form
-          className="needs-validation"
-          noValidate
-          onSubmit={sendAddressForm}
-        >
+        <form className="needs-validation" noValidate>
           <div className="row">
             <div className="col-md-6 mb-3">
               <label htmlFor="firstName">First name</label>
