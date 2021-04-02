@@ -1,8 +1,27 @@
+import { useState } from "react";
+
 export default function AddressForm() {
+  const [addressInfo, setAddressInfo] = useState({
+  });
+
+  function sendAddressForm(e) {
+    e.preventDefault();
+    console.log("address form sent: ", addressInfo);
+  }
+
+  const handleChanges = (e) => {
+    e.preventDefault();
+
+    const updatedAddress = {
+      ...addressInfo,
+      [e.target.id]: e.target.value
+    };
+    return setAddressInfo(updatedAddress);
+  };
   return (
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" novalidate onSubmit={sendAddressForm}>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -11,7 +30,7 @@ export default function AddressForm() {
               class="form-control"
               id="firstName"
               placeholder=""
-              value=""
+              onChange={handleChanges}
               required
             />
             <div class="invalid-feedback">Valid first name is required.</div>
@@ -23,7 +42,7 @@ export default function AddressForm() {
               class="form-control"
               id="lastName"
               placeholder=""
-              value=""
+              onChange={handleChanges}
               required
             />
             <div class="invalid-feedback">Valid last name is required.</div>
@@ -41,6 +60,7 @@ export default function AddressForm() {
               class="form-control"
               id="username"
               placeholder="Username"
+              onChange={handleChanges}
               required
             />
             <div class="invalid-feedback" style={{ width: "100%" }}>
@@ -58,6 +78,7 @@ export default function AddressForm() {
             class="form-control"
             id="email"
             placeholder="you@example.com"
+            onChange={handleChanges}
           />
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
@@ -72,6 +93,7 @@ export default function AddressForm() {
             id="address"
             placeholder="1234 Main St"
             required
+            onChange={handleChanges}
           />
           <div class="invalid-feedback">
             Please enter your shipping address.
@@ -87,22 +109,33 @@ export default function AddressForm() {
             class="form-control"
             id="address2"
             placeholder="Apartment or suite"
+            onChange={handleChanges}
           />
         </div>
 
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">Choose...</option>
+            <select
+              class="custom-select d-block w-100"
+              id="country"
+              required
+              onChange={handleChanges}
+            >
+              <option>Choose...</option>
               <option>United States</option>
             </select>
             <div class="invalid-feedback">Please select a valid country.</div>
           </div>
           <div class="col-md-4 mb-3">
             <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required>
-              <option value="">Choose...</option>
+            <select
+              class="custom-select d-block w-100"
+              id="state"
+              required
+              onChange={handleChanges}
+            >
+              <option>Choose...</option>
               <option>California</option>
             </select>
             <div class="invalid-feedback">Please provide a valid state.</div>
@@ -115,6 +148,7 @@ export default function AddressForm() {
               id="zip"
               placeholder=""
               required
+              onChange={handleChanges}
             />
             <div class="invalid-feedback">Zip code required.</div>
           </div>
@@ -125,14 +159,24 @@ export default function AddressForm() {
             type="checkbox"
             class="custom-control-input"
             id="same-address"
+            onChange={handleChanges}
           />
           <label class="custom-control-label" for="same-address">
             Shipping address is the same as my billing address
           </label>
         </div>
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="save-info" />
-          <label class="custom-control-label" for="save-info">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="save-info"
+            onChange={handleChanges}
+          />
+          <label
+            class="custom-control-label"
+            id="save-info"
+            onChange={handleChanges}
+          >
             Save this information for next time
           </label>
         </div>
