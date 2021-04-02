@@ -1,5 +1,6 @@
 import "./App.css";
-import PaymentInterface from "./components/paymentInterface";
+import PaymentInterface from "./components/paymentInterface/paymentInterface";
+import ShoppingCart from "./components/shoppingCart/shoppingCart";
 
 function App() {
   return (
