@@ -2,6 +2,17 @@ import { useState } from "react";
 
 export default function AddressForm() {
   const [addressInfo, setAddressInfo] = useState({
+    address: "",
+    address2: "",
+    country: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    "same-address": "",
+    "save-info": "",
+    state: "",
+    username: "",
+    zip: ""
   });
 
   function sendAddressForm(e) {
