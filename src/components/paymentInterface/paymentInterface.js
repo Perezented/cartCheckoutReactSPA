@@ -82,13 +82,9 @@ export default function PaymentInterface() {
             </li>
           </ul>
           <br />
-          <a
-            href="/"
-            className="btn btn-success btn-lg btn-block"
-            role="button"
-          >
+          <button className="btn btn-success btn-lg btn-block" type="submit">
             Pay
-          </a>
+          </button>
         </div>
       </div>
     </div>
