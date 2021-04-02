@@ -24,12 +24,16 @@ function App() {
     username: "",
     zip: ""
   });
+
+  function submitInfo() {
+    console.log(addressInfo, cardInfo);
+  }
   return (
     <div className="App">
       <header className="App-header">
         <ShoppingCart />
         <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
-        <PaymentInterface cardInfo={{ cardInfo, setCardInfo }} />
+        <PaymentInterface cardInfo={{ cardInfo, setCardInfo, submitInfo }} />
       </header>
     </div>
   );

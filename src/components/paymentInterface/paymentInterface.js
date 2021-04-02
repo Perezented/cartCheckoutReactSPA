@@ -1,8 +1,4 @@
 export default function PaymentInterface(props) {
-  function sendCardInfo(e) {
-    e.preventDefault();
-    console.log("address form sent: ", props.cardInfo);
-  }
   const handleChanges = (e) => {
     e.preventDefault();
     const updatedCardInfo = {
@@ -27,7 +23,7 @@ export default function PaymentInterface(props) {
               </div>
             </div>
             <div className="panel-body">
-              <form onSubmit={sendCardInfo}>
+              <form>
                 <div className="form-group">
                   <label htmlFor="cardNumber">CARD NUMBER</label>
                   <div className="input-group">
@@ -107,7 +103,11 @@ export default function PaymentInterface(props) {
             </li>
           </ul>
           <br />
-          <button className="btn btn-success btn-lg btn-block" type="submit">
+          <button
+            onClick={props.cardInfo.submitInfo}
+            className="btn btn-success btn-lg btn-block"
+            type="submit"
+          >
             Pay
           </button>
         </div>
