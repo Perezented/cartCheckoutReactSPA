@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PanelFooter() {
   return (
     <div className="panel-footer">
@@ -8,9 +10,11 @@ export default function PanelFooter() {
           </h4>
         </div>
         <div className="col-xs-3">
-          <button type="button" className="btn btn-success btn-block">
-            Checkout
-          </button>
+          <Link to="/checkout">
+            <button type="button" className="btn btn-success btn-block">
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import "./App.css";
 import AddressForm from "./components/addressForm/addressForm";
 import PaymentInterface from "./components/paymentInterface/paymentInterface";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   const [cardInfo, setCardInfo] = useState({
@@ -31,9 +32,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ShoppingCart />
-        <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
-        <PaymentInterface cardInfo={{ cardInfo, setCardInfo, submitInfo }} />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <ShoppingCart />
+            </Route>
+            <Route exact path="/cart">
+              <ShoppingCart />
+            </Route>
+            <Route exact path="/checkout">
+              <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
+              <PaymentInterface
+                cardInfo={{ cardInfo, setCardInfo, submitInfo }}
+              />
+            </Route>
+          </Switch>
+        </Router>
       </header>
     </div>
   );
