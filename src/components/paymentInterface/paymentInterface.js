@@ -38,6 +38,7 @@ export default function PaymentInterface(props) {
                       id="cardNumber"
                       placeholder="Valid Card Number"
                       required
+                      maxLength="16"
                     />
                     <span className="input-group-addon">
                       <span className="glyphicon glyphicon-lock"></span>
