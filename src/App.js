@@ -4,6 +4,7 @@ import AddressForm from "./components/addressForm/addressForm";
 import PaymentInterface from "./components/paymentInterface/paymentInterface";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 
 function App() {
   const [cardInfo, setCardInfo] = useState({
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route exact path="/cart">
               <ShoppingCart />
+            </Route>
+            <Route exact path="/confirmation">
+              <ConfirmationPage />
             </Route>
             <Route exact path="/checkout">
               <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
