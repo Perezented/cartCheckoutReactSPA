@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function PaymentInterface(props) {
   const handleChanges = (e) => {
     e.preventDefault();
@@ -103,13 +105,15 @@ export default function PaymentInterface(props) {
             </li>
           </ul>
           <br />
-          <button
-            onClick={props.cardInfo.submitInfo}
-            className="btn btn-success btn-lg btn-block"
-            type="submit"
-          >
-            Pay
-          </button>
+          <Link to="/confirmation">
+            <button
+              onClick={props.cardInfo.submitInfo}
+              className="btn btn-success btn-lg btn-block"
+              type="submit"
+            >
+              Pay
+            </button>
+          </Link>
         </div>
       </div>
     </div>
