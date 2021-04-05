@@ -1,0 +1,18 @@
+{
+  "Products":{
+    "product0": {
+      "productItemID":0,
+      "productImg": "img.jpg",
+      "productName": "Product Name",
+      "productDescription": "Product Description",
+      "productPrice": "25.00"
+    },
+    "product1": {
+      "productItemID":1,
+      "productImg": "img0.jpg",
+      "productName": "Product Name 2",
+      "productDescription": "Product Description 2",
+      "productPrice": "35.00"
+    }
+  }
+}
