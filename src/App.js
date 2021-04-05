@@ -41,8 +41,15 @@ function App() {
     zip: ""
   });
 
+  function removeItem(item) {
+    const newCart = cart.filter((cartItem) => {
+      return cartItem.productItemID !== item.productItemID;
+    });
+    setCart(newCart);
+  }
+
   function submitInfo() {
-    console.log(addressInfo, cardInfo);
+    console.log(addressInfo, cardInfo, cart);
   }
   cart.total = 0;
   cart.map((cartItem) => {
@@ -57,10 +64,10 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <ShoppingCart cartInfo={{ cart, setCart }} />
+              <ShoppingCart cartInfo={{ cart, removeItem }} />
             </Route>
             <Route exact path="/cart">
-              <ShoppingCart cartInfo={{ cart, setCart }} />
+              <ShoppingCart cartInfo={{ cart, removeItem }} />
             </Route>
             <Route exact path="/confirmation">
               <ConfirmationPage />

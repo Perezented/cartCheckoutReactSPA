@@ -1,4 +1,4 @@
-export default function repeatableCartItem(value, index) {
+export default function repeatableCartItem(value, index, removeItemFunction) {
   return (
     <div key={index}>
       <div className="row">
@@ -33,7 +33,13 @@ export default function repeatableCartItem(value, index) {
             />
           </div>
           <div className="col-xs-2">
-            <button type="button" className="btn btn-link btn-xs">
+            <button
+              type="button"
+              className="btn btn-link btn-xs"
+              onClick={() => {
+                removeItemFunction(value);
+              }}
+            >
               <span className="glyphicon glyphicon-trash"> </span>
             </button>
           </div>

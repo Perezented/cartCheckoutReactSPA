@@ -3,7 +3,7 @@ import TotalBar from "./totalBar";
 
 export default function PanelBody(props) {
   const cart = props["cartInfo"].cart;
-  const setCart = props["cartInfo"].setCart;
+  const removeItem = props["cartInfo"].removeItem;
 
   if (cart.length === 0) {
     return null;
@@ -15,7 +15,7 @@ export default function PanelBody(props) {
         {cart.length !== 0 &&
           cart.map((value, index, array) => {
             console.log(value);
-            return repeatableCartItem(value, index);
+            return repeatableCartItem(value, index, removeItem);
           })}
         <TotalBar />
       </>
