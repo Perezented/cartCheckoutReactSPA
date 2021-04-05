@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 
-export default function PanelFooter() {
+export default function PanelFooter(cart) {
+  const actualCart = cart.cart;
+  actualCart.total = 0;
+  actualCart.map((cartItem) => {
+    const productPrice = cartItem.productPrice;
+    const quantity = cartItem.quantity;
+    actualCart.total += productPrice * quantity;
+  });
   return (
     <div className="panel-footer">
       <div className="row text-center">
         <div className="col-xs-9">
           <h4 className="text-right">
-            Total <strong>$50.00</strong>
+            Total <strong>${actualCart.total}</strong>
           </h4>
         </div>
         <div className="col-xs-3">
