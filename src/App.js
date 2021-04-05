@@ -44,6 +44,13 @@ function App() {
   function submitInfo() {
     console.log(addressInfo, cardInfo);
   }
+  cart.total = 0;
+  cart.map((cartItem) => {
+    const productPrice = cartItem.productPrice;
+    const quantity = cartItem.quantity;
+    cart.total += productPrice * quantity;
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -61,7 +68,7 @@ function App() {
             <Route exact path="/checkout">
               <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
               <PaymentInterface
-                cardInfo={{ cardInfo, setCardInfo, submitInfo }}
+                cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
               />
             </Route>
           </Switch>
