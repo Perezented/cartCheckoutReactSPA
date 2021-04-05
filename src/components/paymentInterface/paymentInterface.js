@@ -9,6 +9,7 @@ export default function PaymentInterface(props) {
     };
     return props.cardInfo["setCardInfo"](updatedCardInfo);
   };
+  let cartTotal = props.cardInfo.cart.total;
 
   return (
     <div className="container">
@@ -98,7 +99,8 @@ export default function PaymentInterface(props) {
             <li className="active">
               <a href="#">
                 <span className="badge pull-right">
-                  <span className="glyphicon glyphicon-usd"></span>4200
+                  <span className="glyphicon glyphicon-usd"></span>
+                  {cartTotal}
                 </span>{" "}
                 Final Payment
               </a>

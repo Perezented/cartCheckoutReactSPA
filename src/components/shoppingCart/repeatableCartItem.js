@@ -1,0 +1,45 @@
+export default function repeatableCartItem(value, index) {
+  return (
+    <div key={index}>
+      <div className="row">
+        <div className="col-xs-2">
+          <img
+            className="img-responsive"
+            src="http://placehold.it/100x70"
+            alt="some filler"
+          />
+        </div>
+        <div className="col-xs-4">
+          <h4 className="product-name">
+            <strong>{value.productName}</strong>
+          </h4>
+          <h4>
+            <small>{value.productDescription}</small>
+          </h4>
+        </div>
+        <div className="col-xs-6">
+          <div className="col-xs-6 text-right">
+            <h6>
+              <strong>
+                {value.productPrice} <span className="text-muted">x</span>
+              </strong>
+            </h6>
+          </div>
+          <div className="col-xs-4">
+            <input
+              type="text"
+              className="form-control input-sm"
+              value={value.quantity}
+            />
+          </div>
+          <div className="col-xs-2">
+            <button type="button" className="btn btn-link btn-xs">
+              <span className="glyphicon glyphicon-trash"> </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  );
+}
