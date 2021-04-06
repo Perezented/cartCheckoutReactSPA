@@ -1,3 +1,4 @@
+import fillerImg from "../../imgs/SomeFiller.png";
 import Counter from "./counter";
 
 export default function repeatableCartItem(
@@ -10,11 +11,7 @@ export default function repeatableCartItem(
     <div key={index}>
       <div className="row">
         <div className="col-xs-2">
-          <img
-            className="img-responsive"
-            src="http://placehold.it/100x70"
-            alt="some filler"
-          />
+          <img className="img-responsive" src={fillerImg} alt="some filler" />
         </div>
         <div className="col-xs-4">
           <h4 className="product-name">
