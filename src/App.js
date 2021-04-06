@@ -68,41 +68,56 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Navbar />
-              <ShoppingCart
-                cartInfo={{
-                  cart,
-                  removeItem,
-                  calculateTotal
-                }}
-              />
-            </Route>
-            <Route exact path="/cart">
-              <Navbar />
-              <ShoppingCart
-                cartInfo={{
-                  cart,
-                  removeItem,
-                  calculateTotal
-                }}
-              />
-            </Route>
-            <Route exact path="/confirmation">
-              <Navbar />
-              <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
-            </Route>
-            <Route exact path="/checkout">
-              <Navbar />
-              <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
-              <PaymentInterface
-                cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
-              />
-            </Route>
-          </Switch>
-        </Router>
+        <SomeContext.Provider
+          value={{
+            cart,
+            removeItem,
+            addressInfo,
+            setAddressInfo,
+            cardInfo,
+            setCardInfo,
+            cartTotal,
+            setCartTotal,
+            calculateTotal,
+            submitInfo
+          }}
+        >
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Navbar />
+                <ShoppingCart
+                  cartInfo={{
+                    cart,
+                    removeItem,
+                    calculateTotal
+                  }}
+                />
+              </Route>
+              <Route exact path="/cart">
+                <Navbar />
+                <ShoppingCart
+                  cartInfo={{
+                    cart,
+                    removeItem,
+                    calculateTotal
+                  }}
+                />
+              </Route>
+              <Route exact path="/confirmation">
+                <Navbar />
+                <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
+              </Route>
+              <Route exact path="/checkout">
+                <Navbar />
+                <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
+                <PaymentInterface
+                  cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
+                />
+              </Route>
+            </Switch>
+          </Router>
+        </SomeContext.Provider>
       </header>
     </div>
   );
