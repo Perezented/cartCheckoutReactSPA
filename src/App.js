@@ -4,6 +4,7 @@ import AddressForm from "./components/addressForm/addressForm";
 import PaymentInterface from "./components/paymentInterface/paymentInterface";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./components/navbar/navbar";
 import products from "./config/config.json";
 import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 
@@ -67,6 +68,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
+              <Navbar />
               <ShoppingCart
                 cartInfo={{
                   cart,
@@ -76,6 +78,7 @@ function App() {
               />
             </Route>
             <Route exact path="/cart">
+              <Navbar />
               <ShoppingCart
                 cartInfo={{
                   cart,
@@ -88,6 +91,7 @@ function App() {
               <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
             </Route>
             <Route exact path="/checkout">
+              <Navbar />
               <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
               <PaymentInterface
                 cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
