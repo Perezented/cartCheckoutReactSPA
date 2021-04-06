@@ -97,13 +97,13 @@ export default function PaymentInterface(props) {
           </div>
           <ul className="nav nav-pills nav-stacked">
             <li className="active">
-              <a href="#">
+              <Link to="/confirmation" onClick={props.cardInfo.submitInfo}>
                 <span className="badge pull-right">
                   <span className="glyphicon glyphicon-usd"></span>
                   {cartTotal}
                 </span>{" "}
                 Final Payment
-              </a>
+              </Link>
             </li>
           </ul>
           <br />

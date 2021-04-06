@@ -22,8 +22,8 @@ function App() {
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
     cardNumber: "",
-    expMonth: "",
-    expYear: "",
+    expityMonth: "",
+    expityYear: "",
     cvCode: ""
   });
   // Address info for user
@@ -34,8 +34,8 @@ function App() {
     email: "",
     firstName: "",
     lastName: "",
-    "same-address": "",
-    "save-info": "",
+    "same-address": "off",
+    "save-info": "off",
     state: "",
     username: "",
     zip: ""
@@ -58,7 +58,7 @@ function App() {
   }
 
   function submitInfo() {
-    console.log(addressInfo, cardInfo, cart);
+    console.log(addressInfo, cardInfo, cart); // Would connect to db here
   }
 
   calculateTotal(cart);
