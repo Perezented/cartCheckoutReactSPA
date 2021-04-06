@@ -1,7 +1,5 @@
 export default function AddressForm(props) {
   const handleChanges = (e) => {
-    e.preventDefault();
-
     const updatedAddress = {
       ...props.addressInfo["addressInfo"],
       [e.target.id]: e.target.value
@@ -20,7 +18,7 @@ export default function AddressForm(props) {
                 type="text"
                 className="form-control"
                 id="firstName"
-                placeholder=""
+                placeholder="First Name"
                 onChange={handleChanges}
                 required
               />
@@ -34,7 +32,7 @@ export default function AddressForm(props) {
                 type="text"
                 className="form-control"
                 id="lastName"
-                placeholder=""
+                placeholder="Last Name"
                 onChange={handleChanges}
                 required
               />

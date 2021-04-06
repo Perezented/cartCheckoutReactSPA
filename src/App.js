@@ -24,7 +24,8 @@ function App() {
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
-    cvCode: ""
+    cvCode: "",
+    remember: ""
   });
   // Address info for user
   const [addressInfo, setAddressInfo] = useState({
@@ -34,8 +35,8 @@ function App() {
     email: "",
     firstName: "",
     lastName: "",
-    "same-address": "off",
-    "save-info": "off",
+    "same-address": "",
+    "save-info": "",
     state: "",
     username: "",
     zip: ""
@@ -88,6 +89,7 @@ function App() {
               />
             </Route>
             <Route exact path="/confirmation">
+              <Navbar />
               <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
             </Route>
             <Route exact path="/checkout">
