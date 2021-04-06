@@ -1,6 +1,11 @@
 import Counter from "./counter";
 
-export default function repeatableCartItem(value, index, removeItemFunction) {
+export default function repeatableCartItem(
+  value,
+  index,
+  removeItemFunction,
+  cartLength
+) {
   return (
     <div key={index}>
       <div className="row">
@@ -28,7 +33,7 @@ export default function repeatableCartItem(value, index, removeItemFunction) {
             </h6>
           </div>
           <div className="col-xs-4">
-            <Counter props={value} />
+            <Counter props={{ value, cartLength }} />
           </div>
           <div className="col-xs-2">
             <button
