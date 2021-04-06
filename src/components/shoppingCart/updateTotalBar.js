@@ -1,7 +1,8 @@
-export default function UpdateTotalBar(props) {
-  const cart = props["props"].cart;
-  const calculateTotal = props["props"].calculateTotal;
-  const setCartTotal = props["props"].setCartTotal;
+import { useContext } from "react";
+import { SomeContext } from "../../contexts";
+
+export default function UpdateTotalBar() {
+  const { cart, calculateTotal, setCartTotal } = useContext(SomeContext);
   return (
     <div className="row">
       <div className="text-center">
@@ -13,7 +14,7 @@ export default function UpdateTotalBar(props) {
             type="button"
             className="btn btn-default btn-sm btn-block"
             onClick={() => {
-              props["props"].cart.forEach((cartItem) => {
+              cart.forEach((cartItem) => {
                 if (cartItem.newerQuantity) {
                   cartItem.quantity = cartItem.newerQuantity;
                 }
