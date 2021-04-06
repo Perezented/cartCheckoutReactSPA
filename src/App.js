@@ -87,23 +87,11 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Navbar />
-                <ShoppingCart
-                  cartInfo={{
-                    cart,
-                    removeItem,
-                    calculateTotal
-                  }}
-                />
+                <ShoppingCart />
               </Route>
               <Route exact path="/cart">
                 <Navbar />
-                <ShoppingCart
-                  cartInfo={{
-                    cart,
-                    removeItem,
-                    calculateTotal
-                  }}
-                />
+                <ShoppingCart />
               </Route>
               <Route exact path="/confirmation">
                 <Navbar />
