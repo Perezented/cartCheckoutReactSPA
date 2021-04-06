@@ -55,8 +55,8 @@ function App() {
     const newCart = cart.filter((cartItem) => {
       return cartItem.productItemID !== item.productItemID;
     });
-    setCart(newCart);
     calculateTotal(newCart);
+    setCart(newCart);
   }
 
   function submitInfo() {
