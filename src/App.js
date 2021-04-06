@@ -85,7 +85,7 @@ function App() {
               />
             </Route>
             <Route exact path="/confirmation">
-              <ConfirmationPage />
+              <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
             </Route>
             <Route exact path="/checkout">
               <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
