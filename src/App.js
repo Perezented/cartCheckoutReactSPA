@@ -7,9 +7,6 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import products from "./config/config.json";
 import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 
-// dictionary to house current cart and old cart
-const dict = {};
-const old_cart = {};
 function App() {
   // Start of 'adding' items to cart
   const cartItem0 = products.Products.product0;
