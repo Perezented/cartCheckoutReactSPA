@@ -14,11 +14,13 @@ function App() {
   // Start of 'adding' items to cart
   const cartItem0 = products.Products.product0;
   const cartItem1 = products.Products.product1;
+  const cartItem2 = products.Products.product2;
   // have some sort of quantity to display for each product
   cartItem0.quantity = 1;
   cartItem1.quantity = 2;
+  cartItem2.quantity = 3;
   // cart state set to the mock items
-  const [cart, setCart] = useState([cartItem0, cartItem1]);
+  const [cart, setCart] = useState([cartItem0, cartItem1, cartItem2]);
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
     cardNumber: "",
@@ -40,17 +42,6 @@ function App() {
     username: "",
     zip: ""
   });
-
-  function removeItem(item) {
-    const newCart = cart.filter((cartItem) => {
-      return cartItem.productItemID !== item.productItemID;
-    });
-    setCart(newCart);
-  }
-
-  function submitInfo() {
-    console.log(addressInfo, cardInfo, cart);
-  }
   function calculateTotal(cart) {
     cart.total = 0;
     cart.forEach((cartItem) => {
@@ -60,6 +51,18 @@ function App() {
     });
     return cart.total;
   }
+  function removeItem(item) {
+    const newCart = cart.filter((cartItem) => {
+      return cartItem.productItemID !== item.productItemID;
+    });
+    setCart(newCart);
+    calculateTotal(newCart);
+  }
+
+  function submitInfo() {
+    console.log(addressInfo, cardInfo, cart);
+  }
+
   calculateTotal(cart);
   return (
     <div className="App">
