@@ -1,3 +1,5 @@
+import Counter from "./counter";
+
 export default function repeatableCartItem(value, index, removeItemFunction) {
   return (
     <div key={index}>
@@ -26,11 +28,7 @@ export default function repeatableCartItem(value, index, removeItemFunction) {
             </h6>
           </div>
           <div className="col-xs-4">
-            <input
-              type="text"
-              className="form-control input-sm"
-              value={value.quantity}
-            />
+            <Counter props={value} />
           </div>
           <div className="col-xs-2">
             <button
