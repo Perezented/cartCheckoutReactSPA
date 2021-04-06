@@ -3,29 +3,49 @@ export default function ConfirmationPage(allInfo) {
   const cardInfo = allInfo.allInfo.cardInfo;
   const cart = allInfo.allInfo.cart;
   console.log(addressInfo, cardInfo, cart);
+  let fiveDaysLater = new Date();
+  fiveDaysLater.setDate(fiveDaysLater.getDate() + 5);
   return (
     <section className="text-center">
       <h1>Order Confirmed</h1>
       <div>
         {" "}
-        <p>Thank you for your order, NAME</p>
-        <p>Order Number: IDNUBMER</p>
+        <p>
+          Thank you for your order,{" "}
+          {addressInfo.firstName + " " + addressInfo.lastName}
+        </p>
+        <p>Order Number: {Math.floor(Math.random() * 1000000)}</p>
       </div>
       <div>
-        <p>Order information and confirmation will be sent to EMAIL</p>
+        <p>
+          Order information and confirmation will be sent to {addressInfo.email}
+        </p>
       </div>
       <div>
         <h2>Shipping to address: </h2>
         <div>
-          <p>ADDRESS</p>
+          {`${addressInfo.firstName} ${addressInfo.lastName}`}
+          <p>{addressInfo.address}</p>
+          <p>{addressInfo.address2}</p>
+          <p>{`${addressInfo.state} ${addressInfo.country} ${addressInfo.zip}`}</p>
         </div>
         <div>
-          <p>Standard delivery, 4-7 days Estimated</p>
+          <p>Standard delivery, 4-7 days estimated</p>
         </div>
       </div>
-      <div>These item(s) will arrive in DATE + 5</div>
-      <div>ITEMS</div>
-      <div>ORDER TOTAL</div>
+      <div>These item(s) will arrive in {fiveDaysLater.toDateString()}</div>
+      <div>
+        {cart.map((itemsOrdered) => {
+          console.log(itemsOrdered);
+          return (
+            <p>
+              `{itemsOrdered.quantity} of {itemsOrdered.productName} at{" "}
+              {itemsOrdered.productPrice}`
+            </p>
+          );
+        })}
+      </div>
+      <div>Total: $ {cart.total}</div>
     </section>
   );
 }
