@@ -9,9 +9,11 @@ export default function PanelBody(props) {
   const cartLength = props["cartInfo"].cart.length;
 
   if (cart.length === 0) {
+    setCartTotal(0);
     return null;
   }
   if (cart.length !== 0) {
+    setCartTotal(cart.total);
     return (
       <>
         <hr />
