@@ -1,4 +1,4 @@
-export default function TotalBar() {
+export default function UpdateTotalBar() {
   return (
     <div className="row">
       <div className="text-center">
