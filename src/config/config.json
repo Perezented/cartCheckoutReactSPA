@@ -13,6 +13,13 @@
       "productName": "Product Name 2",
       "productDescription": "Product Description 2",
       "productPrice": "35.00"
+    },
+    "product2": {
+      "productItemID":2,
+      "productImg": "img1.jpg",
+      "productName": "Product Name 3",
+      "productDescription": "Product Description 3",
+      "productPrice": "40.00"
     }
   }
 }

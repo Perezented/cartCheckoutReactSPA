@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function PanelFooter(cart) {
+export default function PanelFooter(props) {
   return (
     <div className="panel-footer">
       <div className="row text-center">
         <div className="col-xs-9">
           <h4 className="text-right">
-            Total <strong>${cart.cart.total}</strong>
+            Total <strong>${props.cartTotal}</strong>
           </h4>
         </div>
         <div className="col-xs-3">

@@ -1,4 +1,11 @@
-export default function repeatableCartItem(value, index) {
+import Counter from "./counter";
+
+export default function repeatableCartItem(
+  value,
+  index,
+  removeItemFunction,
+  cartLength
+) {
   return (
     <div key={index}>
       <div className="row">
@@ -26,14 +33,16 @@ export default function repeatableCartItem(value, index) {
             </h6>
           </div>
           <div className="col-xs-4">
-            <input
-              type="text"
-              className="form-control input-sm"
-              value={value.quantity}
-            />
+            <Counter props={{ value, cartLength }} />
           </div>
           <div className="col-xs-2">
-            <button type="button" className="btn btn-link btn-xs">
+            <button
+              type="button"
+              className="btn btn-link btn-xs"
+              onClick={() => {
+                removeItemFunction(value);
+              }}
+            >
               <span className="glyphicon glyphicon-trash"> </span>
             </button>
           </div>

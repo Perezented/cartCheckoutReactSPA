@@ -1,23 +1,27 @@
 import repeatableCartItem from "./repeatableCartItem";
-import TotalBar from "./totalBar";
+import UpdateTotalBar from "./updateTotalBar";
 
 export default function PanelBody(props) {
   const cart = props["cartInfo"].cart;
-  const setCart = props["cartInfo"].setCart;
+  const removeItem = props["cartInfo"].removeItem;
+  const calculateTotal = props["cartInfo"].calculateTotal;
+  const setCartTotal = props["cartInfo"].setCartTotal;
+  const cartLength = props["cartInfo"].cart.length;
 
   if (cart.length === 0) {
+    setCartTotal(0);
     return null;
   }
   if (cart.length !== 0) {
+    setCartTotal(cart.total);
     return (
       <>
         <hr />
         {cart.length !== 0 &&
-          cart.map((value, index, array) => {
-            console.log(value);
-            return repeatableCartItem(value, index);
+          cart.map((value, index) => {
+            return repeatableCartItem(value, index, removeItem, cartLength);
           })}
-        <TotalBar />
+        <UpdateTotalBar props={{ cart, calculateTotal, setCartTotal }} />
       </>
     );
   }
