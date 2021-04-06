@@ -95,14 +95,12 @@ function App() {
               </Route>
               <Route exact path="/confirmation">
                 <Navbar />
-                <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
+                <ConfirmationPage />
               </Route>
               <Route exact path="/checkout">
                 <Navbar />
-                <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
-                <PaymentInterface
-                  cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
-                />
+                <AddressForm />
+                <PaymentInterface />
               </Route>
             </Switch>
           </Router>

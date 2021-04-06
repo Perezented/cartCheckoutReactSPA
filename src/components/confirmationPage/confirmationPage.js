@@ -1,8 +1,8 @@
-export default function ConfirmationPage(allInfo) {
-  const addressInfo = allInfo.allInfo.addressInfo;
-  const cardInfo = allInfo.allInfo.cardInfo;
-  const cart = allInfo.allInfo.cart;
-  console.log(addressInfo, cardInfo, cart);
+import { useContext } from "react";
+import { SomeContext } from "../../contexts";
+export default function ConfirmationPage() {
+  const { addressInfo, cart } = useContext(SomeContext);
+
   let fiveDaysLater = new Date();
   fiveDaysLater.setDate(fiveDaysLater.getDate() + 5);
   return (

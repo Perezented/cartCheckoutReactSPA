@@ -1,10 +1,13 @@
-export default function AddressForm(props) {
+import { useContext } from "react";
+import { SomeContext } from "../../contexts";
+export default function AddressForm() {
+  const { addressInfo, setAddressInfo } = useContext(SomeContext);
   const handleChanges = (e) => {
     const updatedAddress = {
-      ...props.addressInfo["addressInfo"],
+      ...addressInfo,
       [e.target.id]: e.target.value
     };
-    return props.addressInfo["setAddressInfo"](updatedAddress);
+    return setAddressInfo(updatedAddress);
   };
   return (
     <div className="container">
