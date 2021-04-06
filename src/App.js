@@ -7,6 +7,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import products from "./config/config.json";
 import ConfirmationPage from "./components/confirmationPage/confirmationPage";
+import { SomeContext } from "./contexts";
 
 function App() {
   // Start of 'adding' items to cart
@@ -19,6 +20,7 @@ function App() {
   cartItem2.quantity = 3;
   // cart state set to the mock items
   const [cart, setCart] = useState([cartItem0, cartItem1, cartItem2]);
+  const [cartTotal, setCartTotal] = useState(cart.total);
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
     cardNumber: "",
