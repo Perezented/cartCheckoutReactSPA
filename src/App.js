@@ -51,23 +51,38 @@ function App() {
   function submitInfo() {
     console.log(addressInfo, cardInfo, cart);
   }
-  cart.total = 0;
-  cart.map((cartItem) => {
-    const productPrice = cartItem.productPrice;
-    const quantity = cartItem.quantity;
-    cart.total += productPrice * quantity;
-  });
-
+  function calculateTotal(cart) {
+    cart.total = 0;
+    cart.forEach((cartItem) => {
+      const productPrice = cartItem.productPrice;
+      const quantity = cartItem.quantity;
+      cart.total += productPrice * quantity;
+    });
+    return cart.total;
+  }
+  calculateTotal(cart);
   return (
     <div className="App">
       <header className="App-header">
         <Router>
           <Switch>
             <Route exact path="/">
-              <ShoppingCart cartInfo={{ cart, removeItem }} />
+              <ShoppingCart
+                cartInfo={{
+                  cart,
+                  removeItem,
+                  calculateTotal
+                }}
+              />
             </Route>
             <Route exact path="/cart">
-              <ShoppingCart cartInfo={{ cart, removeItem }} />
+              <ShoppingCart
+                cartInfo={{
+                  cart,
+                  removeItem,
+                  calculateTotal
+                }}
+              />
             </Route>
             <Route exact path="/confirmation">
               <ConfirmationPage />

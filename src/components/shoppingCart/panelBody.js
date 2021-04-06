@@ -4,6 +4,7 @@ import UpdateTotalBar from "./updateTotalBar";
 export default function PanelBody(props) {
   const cart = props["cartInfo"].cart;
   const removeItem = props["cartInfo"].removeItem;
+  const calculateTotal = props["cartInfo"].calculateTotal;
 
   if (cart.length === 0) {
     return null;
@@ -17,7 +18,7 @@ export default function PanelBody(props) {
             console.log(value);
             return repeatableCartItem(value, index, removeItem);
           })}
-        <UpdateTotalBar />
+        <UpdateTotalBar props={{ cart, calculateTotal }} />
       </>
     );
   }
