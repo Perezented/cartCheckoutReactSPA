@@ -56,15 +56,16 @@ function App() {
     const newCart = cart.filter((cartItem) => {
       return cartItem.productItemID !== item.productItemID;
     });
-    calculateTotal(newCart);
     setCart(newCart);
   }
 
   function submitInfo() {
     console.log(addressInfo, cardInfo, cart); // Would connect to db here
   }
-
-  calculateTotal(cart);
+  if (cart.total === undefined) {
+    calculateTotal(cart);
+    setCartTotal(cart.total);
+  }
   return (
     <div className="App">
       <header className="App-header">
