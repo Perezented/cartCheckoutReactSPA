@@ -4,12 +4,10 @@ import AddressForm from "./components/addressForm/addressForm";
 import PaymentInterface from "./components/paymentInterface/paymentInterface";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./components/navbar/navbar";
 import products from "./config/config.json";
 import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 
-// dictionary to house current cart and old cart
-const dict = {};
-const old_cart = {};
 function App() {
   // Start of 'adding' items to cart
   const cartItem0 = products.Products.product0;
@@ -24,8 +22,8 @@ function App() {
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
     cardNumber: "",
-    expMonth: "",
-    expYear: "",
+    expityMonth: "",
+    expityYear: "",
     cvCode: ""
   });
   // Address info for user
@@ -36,8 +34,8 @@ function App() {
     email: "",
     firstName: "",
     lastName: "",
-    "same-address": "",
-    "save-info": "",
+    "same-address": "off",
+    "save-info": "off",
     state: "",
     username: "",
     zip: ""
@@ -60,7 +58,7 @@ function App() {
   }
 
   function submitInfo() {
-    console.log(addressInfo, cardInfo, cart);
+    console.log(addressInfo, cardInfo, cart); // Would connect to db here
   }
 
   calculateTotal(cart);
@@ -70,6 +68,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
+              <Navbar />
               <ShoppingCart
                 cartInfo={{
                   cart,
@@ -79,6 +78,7 @@ function App() {
               />
             </Route>
             <Route exact path="/cart">
+              <Navbar />
               <ShoppingCart
                 cartInfo={{
                   cart,
@@ -88,9 +88,10 @@ function App() {
               />
             </Route>
             <Route exact path="/confirmation">
-              <ConfirmationPage />
+              <ConfirmationPage allInfo={{ addressInfo, cardInfo, cart }} />
             </Route>
             <Route exact path="/checkout">
+              <Navbar />
               <AddressForm addressInfo={{ addressInfo, setAddressInfo }} />
               <PaymentInterface
                 cardInfo={{ cardInfo, setCardInfo, submitInfo, cart }}
