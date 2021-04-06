@@ -1,12 +1,13 @@
-export default function AddressForm(props) {
+import { useContext } from "react";
+import { SomeContext } from "../../contexts";
+export default function AddressForm() {
+  const { addressInfo, setAddressInfo } = useContext(SomeContext);
   const handleChanges = (e) => {
-    e.preventDefault();
-
     const updatedAddress = {
-      ...props.addressInfo["addressInfo"],
+      ...addressInfo,
       [e.target.id]: e.target.value
     };
-    return props.addressInfo["setAddressInfo"](updatedAddress);
+    return setAddressInfo(updatedAddress);
   };
   return (
     <div className="container">
@@ -20,7 +21,7 @@ export default function AddressForm(props) {
                 type="text"
                 className="form-control"
                 id="firstName"
-                placeholder=""
+                placeholder="First Name"
                 onChange={handleChanges}
                 required
               />
@@ -34,7 +35,7 @@ export default function AddressForm(props) {
                 type="text"
                 className="form-control"
                 id="lastName"
-                placeholder=""
+                placeholder="Last Name"
                 onChange={handleChanges}
                 required
               />

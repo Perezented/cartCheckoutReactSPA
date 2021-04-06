@@ -1,16 +1,20 @@
+import { useContext } from "react";
+import { SomeContext } from "../../contexts";
 import { Link } from "react-router-dom";
 
-export default function PaymentInterface(props) {
+export default function PaymentInterface() {
+  const { cartTotal, submitInfo, cardInfo, setCardInfo } = useContext(
+    SomeContext
+  );
+
   const handleChanges = (e) => {
-    e.preventDefault();
     const updatedCardInfo = {
-      ...props.cardInfo["cardInfo"],
+      ...cardInfo,
       [e.target.id]: e.target.value
     };
-    return props.cardInfo["setCardInfo"](updatedCardInfo);
+    return setCardInfo(updatedCardInfo);
   };
-  let cartTotal = props.cardInfo.cart.total;
-
+  // let cartTotal = props.cardInfo.cart.total;
   return (
     <div className="container">
       <div className="row">
@@ -20,7 +24,11 @@ export default function PaymentInterface(props) {
               <h3 className="panel-title">Payment Details</h3>
               <div className="checkbox pull-right">
                 <label>
-                  <input onChange={handleChanges} type="checkbox" />
+                  <input
+                    onChange={handleChanges}
+                    id="remember"
+                    type="checkbox"
+                  />
                   Remember
                 </label>
               </div>
@@ -35,7 +43,7 @@ export default function PaymentInterface(props) {
                       type="text"
                       className="form-control"
                       id="cardNumber"
-                      placeholder="Valid Card Number"
+                      placeholder="1234 5678 9876 5432"
                       required
                       maxLength="16"
                     />
@@ -84,7 +92,7 @@ export default function PaymentInterface(props) {
                         type="password"
                         className="form-control"
                         id="cvCode"
-                        placeholder="CV"
+                        placeholder="123"
                         required
                         autoComplete="false"
                         maxLength="3"
@@ -97,7 +105,7 @@ export default function PaymentInterface(props) {
           </div>
           <ul className="nav nav-pills nav-stacked">
             <li className="active">
-              <Link to="/confirmation" onClick={props.cardInfo.submitInfo}>
+              <Link to="/confirmation" onClick={submitInfo}>
                 <span className="badge pull-right">
                   <span className="glyphicon glyphicon-usd"></span>
                   {cartTotal}
@@ -109,7 +117,7 @@ export default function PaymentInterface(props) {
           <br />
           <Link to="/confirmation">
             <button
-              onClick={props.cardInfo.submitInfo}
+              onClick={submitInfo}
               className="btn btn-success btn-lg btn-block"
               type="submit"
             >
