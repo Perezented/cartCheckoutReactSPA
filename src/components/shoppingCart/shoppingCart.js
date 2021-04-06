@@ -1,24 +1,16 @@
-import { useState } from "react";
 import PanelFooter from "./panelFooter";
 import PanelBody from "./panelBody";
 import PanelHeading from "./panelHeading";
 
-export default function ShoppingCart(cartInfo) {
-  const cart = cartInfo.cartInfo.cart;
-  const [cartTotal, setCartTotal] = useState(cart.total);
-  const removeItem = cartInfo.cartInfo.removeItem;
-  const calculateTotal = cartInfo.cartInfo.calculateTotal;
-
+export default function ShoppingCart() {
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-9">
           <div className="panel panel-info">
             <PanelHeading />
-            <PanelBody
-              cartInfo={{ cart, removeItem, calculateTotal, setCartTotal }}
-            />
-            <PanelFooter cartTotal={cartTotal} />
+            <PanelBody />
+            <PanelFooter />
           </div>
         </div>
       </div>
