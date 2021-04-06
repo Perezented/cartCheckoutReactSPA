@@ -15,8 +15,7 @@ export default function PanelBody(props) {
       <>
         <hr />
         {cart.length !== 0 &&
-          cart.map((value, index, array) => {
-            console.log(value);
+          cart.map((value, index) => {
             return repeatableCartItem(value, index, removeItem);
           })}
         <UpdateTotalBar props={{ cart, calculateTotal, setCartTotal }} />
