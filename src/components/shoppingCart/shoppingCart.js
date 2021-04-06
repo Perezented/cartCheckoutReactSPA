@@ -18,6 +18,7 @@ export default function ShoppingCart(cartInfo) {
             <PanelBody
               cartInfo={{ cart, removeItem, calculateTotal, setCartTotal }}
             />
+            <PanelFooter cartTotal={cartTotal} />
           </div>
         </div>
       </div>
