@@ -5,6 +5,7 @@ export default function PanelBody(props) {
   const cart = props["cartInfo"].cart;
   const removeItem = props["cartInfo"].removeItem;
   const calculateTotal = props["cartInfo"].calculateTotal;
+  const setCartTotal = props["cartInfo"].setCartTotal;
 
   if (cart.length === 0) {
     return null;
@@ -18,7 +19,7 @@ export default function PanelBody(props) {
             console.log(value);
             return repeatableCartItem(value, index, removeItem);
           })}
-        <UpdateTotalBar props={{ cart, calculateTotal }} />
+        <UpdateTotalBar props={{ cart, calculateTotal, setCartTotal }} />
       </>
     );
   }

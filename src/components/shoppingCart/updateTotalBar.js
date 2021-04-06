@@ -1,7 +1,7 @@
 export default function UpdateTotalBar(props) {
   const cart = props["props"].cart;
   const calculateTotal = props["props"].calculateTotal;
-export default function UpdateTotalBar() {
+  const setCartTotal = props["props"].setCartTotal;
   return (
     <div className="row">
       <div className="text-center">
@@ -13,7 +13,13 @@ export default function UpdateTotalBar() {
             type="button"
             className="btn btn-default btn-sm btn-block"
             onClick={() => {
+              props["props"].cart.forEach((cartItem) => {
+                if (cartItem.newerQuantity) {
+                  cartItem.quantity = cartItem.newerQuantity;
+                }
+              });
               calculateTotal(cart);
+              setCartTotal(cart.total);
             }}
           >
             Update cart
