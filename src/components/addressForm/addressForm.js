@@ -224,7 +224,7 @@ export default function AddressForm() {
 
           {!disabled && (
             <Link to="/payment">
-              <button className="btn btn-success btn-block">
+              <button className="btn btn-primary btn-block">
                 Continue to Payment
               </button>
             </Link>
