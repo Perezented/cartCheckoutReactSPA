@@ -1,17 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <div className="container">
       <header className="d-flex justify-content-center py-3">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <a className="nav-link" href="/cart">
+            <NavLink className="nav-link" to="/cart">
               Cart
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/checkout">
+            <NavLink className="nav-link" to="/checkout">
               Checkout
-            </a>
+            </NavLink>
           </li>
         </ul>
       </header>

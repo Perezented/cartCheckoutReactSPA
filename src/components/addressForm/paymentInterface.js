@@ -3,11 +3,10 @@ import { SomeContext } from "../../contexts";
 import * as yup from "yup";
 import paymentFormSchema from "./paymentFormSchema";
 
-export default function PaymentInterface(props) {
-  const { cardInfo, setCardInfo } = useContext(SomeContext);
-  const setPaymentDisabled = props.disabled.setPaymentDisabled;
-  const paymentDisabled = props.disabled.paymentDisabled;
+export default function PaymentInterface() {
+  const { cardInfo, setCardInfo, setPaymentDisabled } = useContext(SomeContext);
   const initialErrors = {
+    cardName: "",
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
@@ -65,6 +64,21 @@ export default function PaymentInterface(props) {
               </div>
             </div>
             <div className="panel-body">
+              <div className="form-group">
+                <label htmlFor="cardNumber">NAME ON CARD</label>
+                <div className="input-group">
+                  <input
+                    onChange={handleChanges}
+                    type="text"
+                    className="form-control"
+                    id="cardName"
+                    name="cardName"
+                    placeholder="Jane Doe"
+                    required
+                  />
+                  <span className="input-group-addon"></span>
+                </div>
+              </div>
               <div className="form-group">
                 <label htmlFor="cardNumber">CARD NUMBER</label>
                 <div className="input-group">

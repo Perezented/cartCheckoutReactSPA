@@ -7,13 +7,19 @@ import Navbar from "./components/navbar/navbar";
 import products from "./config/config.json";
 import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 import { SomeContext } from "./contexts";
+import PaymentInterface from "./components/addressForm/paymentInterface";
+import ValidateButtons from "./components/addressForm/validateButtons";
 
 function App() {
   // cart state set to the mock items
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(cart.total);
+  let [disabled, setDisabled] = useState(true);
+  const [paymentDisabled, setPaymentDisabled] = useState(true);
+
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
+    cardName: "",
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
@@ -87,7 +93,11 @@ function App() {
             cartTotal,
             setCartTotal,
             calculateTotal,
-            submitInfo
+            submitInfo,
+            disabled,
+            setDisabled,
+            paymentDisabled,
+            setPaymentDisabled
           }}
         >
           <Router>
@@ -107,6 +117,13 @@ function App() {
               <Route exact path="/checkout">
                 <Navbar />
                 <AddressForm />
+              </Route>
+              <Route exact path="/payment">
+                <Navbar />
+                <PaymentInterface />
+                <div className="container">
+                  <ValidateButtons disabled={disabled || paymentDisabled} />
+                </div>
               </Route>
             </Switch>
           </Router>
