@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import { SomeContext } from "../../contexts";
+import PaymentInterface from "./paymentInterface";
+import * as yup from "yup";
 export default function AddressForm() {
   const { addressInfo, setAddressInfo } = useContext(SomeContext);
+  const [paymentDisabled, setPaymentDisabled] = useState(true);
+
   const handleChanges = (e) => {
     const updatedAddress = {
       ...addressInfo,
@@ -181,6 +185,9 @@ export default function AddressForm() {
             </label>
           </div>
           <hr className="mb-4" />
+          <PaymentInterface
+            disabled={{ paymentDisabled, setPaymentDisabled }}
+          />
         </form>
       </div>
     </div>
