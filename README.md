@@ -62,3 +62,5 @@ Remember that this project is licensed under the MIT license, and by submitting 
 - The Market/Store to continue shopping
 - Full NavBar
 - Possible update cart button removal and have the quantity auto-update
+
+- True Card Validation
