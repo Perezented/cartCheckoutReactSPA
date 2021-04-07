@@ -28,7 +28,7 @@ export default function AddressForm() {
 
     yup
       .reach(addressFormSchema, element.name)
-      .validate(formData[element.name])
+      .validate({ ...formData, [element.name]: element.value }[element.name])
       .then((valid) => {
         setErrors({ ...errors, [element.name]: "" });
       })
