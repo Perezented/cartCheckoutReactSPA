@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddressForm from "./components/addressForm/addressForm";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
@@ -9,16 +9,8 @@ import ConfirmationPage from "./components/confirmationPage/confirmationPage";
 import { SomeContext } from "./contexts";
 
 function App() {
-  // Start of 'adding' items to cart
-  const cartItem0 = products.Products.product0;
-  const cartItem1 = products.Products.product1;
-  const cartItem2 = products.Products.product2;
-  // have some sort of quantity to display for each product
-  cartItem0.quantity = 1;
-  cartItem1.quantity = 2;
-  cartItem2.quantity = 3;
   // cart state set to the mock items
-  const [cart, setCart] = useState([cartItem0, cartItem1, cartItem2]);
+  const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(cart.total);
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
@@ -65,6 +57,22 @@ function App() {
     calculateTotal(cart);
     setCartTotal(cart.total);
   }
+  useEffect(() => {
+    // Start of 'adding' items to cart
+    const cartItem0 = products.Products.product0;
+    const cartItem1 = products.Products.product1;
+    const cartItem2 = products.Products.product2;
+    // have some sort of quantity to display for each product
+    cartItem0.quantity = 1;
+    cartItem1.quantity = 2;
+    cartItem2.quantity = 3;
+    setCart([cartItem0, cartItem1, cartItem2]);
+  }, []);
+  useEffect(() => {
+    calculateTotal(cart);
+    setCartTotal(cart.total);
+  }, [cart]);
+
   return (
     <div className="App">
       <header className="App-header">
