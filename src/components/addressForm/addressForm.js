@@ -66,9 +66,6 @@ export default function AddressForm() {
                 onChange={handleChanges}
                 required
               />
-              {/* <div className="invalid-feedback">
-                Valid first name is required.
-              </div> */}
             </div>
             <div className="col-md-6 mb-3">
               <label htmlFor="lastName">Last name</label>
@@ -81,9 +78,6 @@ export default function AddressForm() {
                 onChange={handleChanges}
                 required
               />
-              {/* <div className="invalid-feedback">
-                Valid last name is required.
-              </div> */}
             </div>
           </div>
 
@@ -102,9 +96,6 @@ export default function AddressForm() {
                 onChange={handleChanges}
                 required
               />
-              {/* <div className="invalid-feedback" style={{ width: "100%" }}>
-                Your username is required.
-              </div> */}
             </div>
           </div>
 
@@ -120,9 +111,6 @@ export default function AddressForm() {
               placeholder="you@example.com"
               onChange={handleChanges}
             />
-            {/* <div className="invalid-feedback">
-              Please enter a valid email address for shipping updates.
-            </div> */}
           </div>
 
           <div className="mb-3">
@@ -136,9 +124,6 @@ export default function AddressForm() {
               required
               onChange={handleChanges}
             />
-            {/* <div className="invalid-feedback">
-              Please enter your shipping address.
-            </div> */}
           </div>
 
           <div className="mb-3">
@@ -170,9 +155,6 @@ export default function AddressForm() {
                 </option>
                 <option>United States</option>
               </select>
-              {/* <div className="invalid-feedback">
-                Please select a valid country.
-              </div> */}
             </div>
             <div className="col-md-4 mb-3">
               <label htmlFor="state">State</label>
@@ -188,9 +170,6 @@ export default function AddressForm() {
                 </option>
                 <option>California</option>
               </select>
-              {/* <div className="invalid-feedback">
-                Please provide a valid state.
-              </div> */}
             </div>
             <div className="col-md-3 mb-3">
               <label htmlFor="zip">Zip</label>
@@ -204,7 +183,6 @@ export default function AddressForm() {
                 maxLength="5"
                 onChange={handleChanges}
               />
-              {/* <div className="invalid-feedback">Zip code required.</div> */}
             </div>
           </div>
           <hr className="mb-4" />
