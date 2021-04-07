@@ -3,10 +3,8 @@ import { SomeContext } from "../../contexts";
 import * as yup from "yup";
 import paymentFormSchema from "./paymentFormSchema";
 
-export default function PaymentInterface(props) {
-  const { cardInfo, setCardInfo } = useContext(SomeContext);
-  const setPaymentDisabled = props.disabled.setPaymentDisabled;
-  const paymentDisabled = props.disabled.paymentDisabled;
+export default function PaymentInterface() {
+  const { cardInfo, setCardInfo, setPaymentDisabled } = useContext(SomeContext);
   const initialErrors = {
     cardNumber: "",
     expityMonth: "",

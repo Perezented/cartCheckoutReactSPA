@@ -6,7 +6,9 @@ import addressFormSchema from "./addressFormSchema";
 import ValidateButtons from "./validateButtons";
 import { Link } from "react-router-dom";
 export default function AddressForm() {
-  const { addressInfo, setAddressInfo } = useContext(SomeContext);
+  const { addressInfo, setAddressInfo, disabled, setDisabled } = useContext(
+    SomeContext
+  );
   const initialErrors = {
     firstName: "",
     lastName: "",
@@ -19,8 +21,6 @@ export default function AddressForm() {
   };
   let [errors, setErrors] = useState(initialErrors);
   let [formData, setFormData] = useState(addressInfo);
-  let [disabled, setDisabled] = useState(true);
-  const [paymentDisabled, setPaymentDisabled] = useState(true);
 
   const handleChanges = (e) => {
     const element = e.target;
@@ -81,7 +81,6 @@ export default function AddressForm() {
               />
             </div>
           </div>
-
           <div className="mb-3">
             <label htmlFor="username">Username</label>
             <div className="input-group username">
@@ -99,7 +98,6 @@ export default function AddressForm() {
               />
             </div>
           </div>
-
           <div className="mb-3">
             <label htmlFor="email">
               Email <span className="text-muted">(Optional)</span>
@@ -113,7 +111,6 @@ export default function AddressForm() {
               onChange={handleChanges}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="address">Address</label>
             <input
@@ -126,7 +123,6 @@ export default function AddressForm() {
               onChange={handleChanges}
             />
           </div>
-
           <div className="mb-3">
             <label htmlFor="address2">
               Address 2 <span className="text-muted">(Optional)</span>
@@ -140,7 +136,6 @@ export default function AddressForm() {
               onChange={handleChanges}
             />
           </div>
-
           <div className="row stateNcountry">
             <div className="col-md-5 mb-3">
               <label htmlFor="country">Country</label>
