@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import AddressForm from "./components/addressForm/addressForm";
-import PaymentInterface from "./components/paymentInterface/paymentInterface";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
@@ -59,7 +58,7 @@ function App() {
     setCart(newCart);
   }
 
-  function submitInfo() {
+  function submitInfo(e) {
     console.log(addressInfo, cardInfo, cart); // Would connect to db here
   }
   if (cart.total === undefined) {
@@ -100,7 +99,6 @@ function App() {
               <Route exact path="/checkout">
                 <Navbar />
                 <AddressForm />
-                <PaymentInterface />
               </Route>
             </Switch>
           </Router>

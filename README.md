@@ -6,10 +6,10 @@ A React cart/checkout process. A cart component that updates the quantity of eac
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-^17.0.2-blue.svg)
-![aws-amplify](https://img.shields.io/badge/react--router--dom-^5.2.0-darkblue?style=flat-square)
-![axios](https://img.shields.io/badge/axios-%5E0.19.2-yellow?style=flat-square)
-![ant-design](https://img.shields.io/badge/bootstrap-^5.0.0--beta3-red?style=flat-square)
+![React-Router-Dom](https://img.shields.io/badge/react--router--dom-^5.2.0-darkblue?style=flat-square)
+![Bootstrap](https://img.shields.io/badge/bootstrap-^5.0.0--beta3-red?style=flat-square)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+![Yup](https://img.shields.io/badge/yup-%5E0.32.9-yellow?style=flat-square)
 
 <!--
 ![cypress](https://img.shields.io/badge/cypress-%5E4.14.1-orange?style=flat-square)
