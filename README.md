@@ -10,11 +10,7 @@ A React cart/checkout process. A cart component that updates the quantity of eac
 ![Bootstrap](https://img.shields.io/badge/bootstrap-^5.0.0--beta3-red?style=flat-square)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 ![Yup](https://img.shields.io/badge/yup-%5E0.32.9-yellow?style=flat-square)
-
-<!--
 ![cypress](https://img.shields.io/badge/cypress-%5E4.14.1-orange?style=flat-square)
-
- -->
 
 ### How to Work App Locally
 
@@ -39,11 +35,45 @@ A React cart/checkout process. A cart component that updates the quantity of eac
 
 > Enter `npm command_name` into your terminal to run scripts below
 
-    * start - starts the production server after a build is created
+```JSON
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "e2e": "cypress open"
+```
 
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+
+## Cypress Tests
+
+[Visit the project tests on cypress.io](https://dashboard.cypress.io/projects/ka37kf/runs/1/specs)
+
+#
+
+[Cypress Video 1, addressForm checking for limits on inputs that should have a length limit](https://dashboard.cypress.io/projects/ka37kf/runs/1/specs/818d667c-34ea-4003-8db0-00ae63182bac/video?utm_source=Dashboard&utm_medium=Share+URL&utm_campaign=Video)
+
+#
+
+![Cypress Test 1](/src/imgs/cart1.PNG)
+
+#
+
+[Cypress Video 2, Manipulates the cart by removing and changing quantities](https://dashboard.cypress.io/projects/ka37kf/runs/1/specs/5368d6be-fd86-44e3-ab43-7bf7542526cc/video?utm_source=Dashboard&utm_medium=Share+URL&utm_campaign=Video)
+
+#
+
+![Cypress Test 2](/src/imgs/cart2.PNG)
+
+#
+
+[Cypress Video 3, this test runs through the whole cart checkout process](https://dashboard.cypress.io/projects/ka37kf/runs/1/specs/6e490e9d-7818-4273-a63c-f2bf79099754/video?utm_source=Dashboard&utm_medium=Share+URL&utm_campaign=Video)
+
+#
+
+![Cypress Test 3](/src/imgs/cart3.PNG)
 
 ### Pull Requests
 
