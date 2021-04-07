@@ -4,6 +4,7 @@ import { SomeContext } from "../../contexts";
 
 export default function PanelFooter() {
   const { cartTotal } = useContext(SomeContext);
+  // dispalys cart total for the cart screen
   return (
     <div className="panel-footer">
       <div className="row text-center">

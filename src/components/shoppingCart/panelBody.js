@@ -9,10 +9,12 @@ export default function PanelBody() {
   );
   const cartLength = cart.length;
 
+  // if the cart length is empty, everything got removed, set the total to 0
   if (cart.length === 0) {
     setCartTotal(0);
     return null;
   }
+  // if it is not 0, display the repeatable cart item function for every item in the cart (map through)
   if (cart.length !== 0) {
     calculateTotal(cart);
     return (

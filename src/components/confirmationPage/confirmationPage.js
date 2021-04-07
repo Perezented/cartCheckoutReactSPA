@@ -3,6 +3,7 @@ import { SomeContext } from "../../contexts";
 export default function ConfirmationPage() {
   const { addressInfo, cart } = useContext(SomeContext);
 
+  // gets the date 5 days later to spoof a deliver date
   let fiveDaysLater = new Date();
   fiveDaysLater.setDate(fiveDaysLater.getDate() + 5);
   return (
