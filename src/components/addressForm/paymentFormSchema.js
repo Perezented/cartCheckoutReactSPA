@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 const paymentFormSchema = yup.object().shape({
+  cardName: yup.string().min(2).required("Valid name on card required."),
   cardNumber: yup
     .number()
     .positive()

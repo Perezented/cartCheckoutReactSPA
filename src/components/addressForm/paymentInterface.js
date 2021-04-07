@@ -6,6 +6,7 @@ import paymentFormSchema from "./paymentFormSchema";
 export default function PaymentInterface() {
   const { cardInfo, setCardInfo, setPaymentDisabled } = useContext(SomeContext);
   const initialErrors = {
+    cardName: "",
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
@@ -63,6 +64,21 @@ export default function PaymentInterface() {
               </div>
             </div>
             <div className="panel-body">
+              <div className="form-group">
+                <label htmlFor="cardNumber">NAME ON CARD</label>
+                <div className="input-group">
+                  <input
+                    onChange={handleChanges}
+                    type="text"
+                    className="form-control"
+                    id="cardName"
+                    name="cardName"
+                    placeholder="Jane Doe"
+                    required
+                  />
+                  <span className="input-group-addon"></span>
+                </div>
+              </div>
               <div className="form-group">
                 <label htmlFor="cardNumber">CARD NUMBER</label>
                 <div className="input-group">

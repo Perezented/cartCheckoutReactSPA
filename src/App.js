@@ -19,6 +19,7 @@ function App() {
 
   // cardInfo
   const [cardInfo, setCardInfo] = useState({
+    cardName: "",
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
