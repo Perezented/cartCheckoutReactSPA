@@ -4,6 +4,7 @@ import PaymentInterface from "./paymentInterface";
 import * as yup from "yup";
 import addressFormSchema from "./addressFormSchema";
 import ValidateButtons from "./validateButtons";
+import { Link } from "react-router-dom";
 export default function AddressForm() {
   const { addressInfo, setAddressInfo } = useContext(SomeContext);
   const initialErrors = {
@@ -228,10 +229,13 @@ export default function AddressForm() {
             }
           })}
 
-          <PaymentInterface
-            disabled={{ paymentDisabled, setPaymentDisabled }}
-          />
-          <ValidateButtons disabled={disabled || paymentDisabled} />
+          {!disabled && (
+            <Link to="/payment">
+              <button className="btn btn-success btn-block">
+                Continue to Payment
+              </button>
+            </Link>
+          )}
         </form>
       </div>
     </div>

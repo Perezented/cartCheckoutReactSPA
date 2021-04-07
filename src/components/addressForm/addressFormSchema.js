@@ -11,7 +11,7 @@ const addressFormSchema = yup.object().shape({
   country: yup.string().required("Please select a valid country."),
   state: yup.string().required("Please provide a valid state."),
   zip: yup.string().required("Zip code required."),
-  address2: yup.string().min(2),
+  address2: yup.string(),
   "same-address": yup.string(),
   "save-info": yup.string()
 });
