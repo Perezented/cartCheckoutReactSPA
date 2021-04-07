@@ -43,10 +43,6 @@ A React cart/checkout process. A cart component that updates the quantity of eac
     "e2e": "cypress open"
 ```
 
-# Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
-
 ## Cypress Tests
 
 [Visit the project tests on cypress.io](https://dashboard.cypress.io/projects/ka37kf/runs/1/specs)
@@ -74,6 +70,10 @@ When contributing to this repository, please first discuss the change you wish t
 #
 
 ![Cypress Test 3](/src/imgs/cart3.PNG)
+
+# Contributing
+
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 ### Pull Requests
 
