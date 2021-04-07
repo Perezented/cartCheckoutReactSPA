@@ -48,7 +48,7 @@ export default function PaymentInterface(props) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xs-12 col-md-9">
+        <div className="col-xs-12 col-md-9 cctaker">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Payment Details</h3>
