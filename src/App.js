@@ -18,16 +18,17 @@ function App() {
   const [paymentDisabled, setPaymentDisabled] = useState(true);
 
   // cardInfo
-  const [cardInfo, setCardInfo] = useState({
+  const initialCardInfo = {
     cardName: "",
     cardNumber: "",
     expityMonth: "",
     expityYear: "",
     cvCode: "",
     remember: ""
-  });
+  };
+  const [cardInfo, setCardInfo] = useState(initialCardInfo);
   // Address info for user
-  const [addressInfo, setAddressInfo] = useState({
+  const initialAddressInfo = {
     address: "",
     address2: "",
     country: "",
@@ -39,7 +40,8 @@ function App() {
     state: "",
     username: "",
     zip: ""
-  });
+  };
+  const [addressInfo, setAddressInfo] = useState(initialAddressInfo);
   function calculateTotal(cart) {
     cart.total = 0;
     cart.forEach((cartItem) => {
@@ -58,6 +60,8 @@ function App() {
 
   function submitInfo(e) {
     console.log(addressInfo, cardInfo, cart); // Would connect to db here
+    // setAddressInfo(initialAddressInfo);
+    // setCardInfo(initialCardInfo);
   }
   if (cart.total === undefined) {
     calculateTotal(cart);
