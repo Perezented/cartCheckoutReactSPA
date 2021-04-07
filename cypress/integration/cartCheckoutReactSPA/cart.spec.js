@@ -92,7 +92,23 @@ context("Should change item counts in the cart", () => {
     cy.contains("1105");
   });
 });
-  it("Should have a checkout button", () => {
-    cy.contains(/checkout/i);
-  });
-});
+context(
+  "Should change total when item counts are changed. Deleting item should remove from total as well.",
+  () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:3000/");
+    });
+
+    it("Should change the count in cart and total should update. Deleting item afterward to update total again", () => {
+      cy.contains("215");
+      cy.get("#counter").first().type("4").should("have.value", "14");
+      cy.get("540").should("not.exist");
+      cy.get(".btn.btn-default.btn-sm.btn-block").click();
+      cy.get("215").should("not.exist");
+      cy.contains("540");
+      cy.get(".glyphicon-trash").eq(1).click();
+      cy.get("540").should("not.exist");
+      cy.contains("470");
+    });
+  }
+);
