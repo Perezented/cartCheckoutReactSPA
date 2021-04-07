@@ -2,9 +2,7 @@ import { useContext } from "react";
 import { SomeContext } from "../../contexts";
 import { Link } from "react-router-dom";
 export default function ValidateButtons(props) {
-  const { addressInfo, cardInfo, cart, cartTotal, submitInfo } = useContext(
-    SomeContext
-  );
+  const { cartTotal, submitInfo } = useContext(SomeContext);
   if (props.disabled) {
     return (
       <>
