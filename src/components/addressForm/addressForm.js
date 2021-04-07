@@ -7,6 +7,7 @@ export default function AddressForm() {
   const { addressInfo, setAddressInfo, disabled, setDisabled } = useContext(
     SomeContext
   );
+  // inital state for errors
   const initialErrors = {
     firstName: "",
     lastName: "",
@@ -17,14 +18,15 @@ export default function AddressForm() {
     state: "",
     zip: ""
   };
+  // errors state for displaying what is missing or incorrect
   let [errors, setErrors] = useState(initialErrors);
   let [formData, setFormData] = useState(addressInfo);
 
   const handleChanges = (e) => {
     const element = e.target;
-
+    // update the form data to be sent to the confirmation page
     setFormData({ ...formData, [element.name]: element.value });
-
+    // Yup validation checking the current form data and input
     yup
       .reach(addressFormSchema, element.name)
       .validate({ ...formData, [element.name]: element.value }[element.name])

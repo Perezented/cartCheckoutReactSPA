@@ -7,6 +7,7 @@ export default function repeatableCartItem(
   removeItemFunction,
   cartLength
 ) {
+  // Just a template for cart items to be displayed in the cart bars
   return (
     <div key={index}>
       <div className="row">

@@ -5,6 +5,7 @@ import paymentFormSchema from "./paymentFormSchema";
 
 export default function PaymentInterface() {
   const { cardInfo, setCardInfo, setPaymentDisabled } = useContext(SomeContext);
+  // inital state for errors
   const initialErrors = {
     cardName: "",
     cardNumber: "",
@@ -13,14 +14,15 @@ export default function PaymentInterface() {
     cvCode: "",
     remember: ""
   };
+  // errors state for displaying what is missing or incorrect
   let [errors, setErrors] = useState(initialErrors);
   let [formData, setFormData] = useState(cardInfo);
 
   const handleChanges = (e) => {
     const element = e.target;
-
+    // update the form data to be sent to the confirmation page
     setFormData({ ...formData, [element.name]: element.value });
-
+    // Yup validation checking the current form data and input
     yup
       .reach(paymentFormSchema, element.name)
       .validate({ ...formData, [element.name]: element.value }[element.name])
@@ -32,7 +34,7 @@ export default function PaymentInterface() {
       });
   };
   useEffect(() => {
-    // Checks address form to be all fileed out to allow the pay button to show up
+    // Checks payment form to be all filled out to allow the pay button to show up
     paymentFormSchema.isValid(formData).then((valid) => {
       if (valid) {
         setCardInfo(formData);

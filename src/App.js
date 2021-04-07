@@ -13,7 +13,9 @@ import ValidateButtons from "./components/addressForm/validateButtons";
 function App() {
   // cart state set to the mock items
   const [cart, setCart] = useState([]);
+  // a cart total for all other totals seen on the screens
   const [cartTotal, setCartTotal] = useState(cart.total);
+  // if all fields are not filled out, these do not allow the continue button to be pressed
   let [disabled, setDisabled] = useState(true);
   const [paymentDisabled, setPaymentDisabled] = useState(true);
 
@@ -42,6 +44,7 @@ function App() {
     zip: ""
   };
   const [addressInfo, setAddressInfo] = useState(initialAddressInfo);
+  // calculates the total for the cart and applies a 'total' key to cart
   function calculateTotal(cart) {
     cart.total = 0;
     cart.forEach((cartItem) => {
@@ -51,6 +54,7 @@ function App() {
     });
     return cart.total;
   }
+  // Used for removing items out of the cart
   function removeItem(item) {
     const newCart = cart.filter((cartItem) => {
       return cartItem.productItemID !== item.productItemID;
@@ -58,17 +62,21 @@ function App() {
     setCart(newCart);
   }
 
+  // A funtion that would reset the states and connect to the back end servers
   function submitInfo(e) {
     console.log(addressInfo, cardInfo, cart); // Would connect to db here
     // setAddressInfo(initialAddressInfo);
     // setCardInfo(initialCardInfo);
   }
+
+  // When the page loads, the total needs to be set
   if (cart.total === undefined) {
     calculateTotal(cart);
     setCartTotal(cart.total);
   }
+
+  // Start of 'adding' items to cart
   useEffect(() => {
-    // Start of 'adding' items to cart
     const cartItem0 = products.Products.product0;
     const cartItem1 = products.Products.product1;
     const cartItem2 = products.Products.product2;
@@ -78,6 +86,8 @@ function App() {
     cartItem2.quantity = 3;
     setCart([cartItem0, cartItem1, cartItem2]);
   }, []);
+
+  // Anytime the cart changes, update the total
   useEffect(() => {
     calculateTotal(cart);
     setCartTotal(cart.total);
@@ -86,6 +96,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {/* A context that is too big, should be broken down to more specific contexts */}
         <SomeContext.Provider
           value={{
             cart,
