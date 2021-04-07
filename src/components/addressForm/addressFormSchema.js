@@ -1,15 +1,17 @@
 import * as yup from "yup";
 
 const addressFormSchema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  email: yup.string().email(),
-  username: yup.string().required("Username is required"),
-  address: yup.string().required("Address is required"),
-  country: yup.string().required("Country is required"),
-  state: yup.string().required("State is required"),
-  zip: yup.string().required("Zip code is required"),
-  address2: yup.string(),
+  firstName: yup.string().min(2).required("Valid first name is required."),
+  lastName: yup.string().min(2).required("Valid last name is required."),
+  email: yup
+    .string()
+    .email("Please enter a valid email address for shipping updates."),
+  username: yup.string().min(2).required("Your username is required."),
+  address: yup.string().min(2).required("Please enter your shipping address."),
+  country: yup.string().required("Please select a valid country."),
+  state: yup.string().required("Please provide a valid state."),
+  zip: yup.string().required("Zip code required."),
+  address2: yup.string().min(2),
   "same-address": yup.string(),
   "save-info": yup.string()
 });
