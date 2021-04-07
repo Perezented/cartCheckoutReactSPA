@@ -10,11 +10,7 @@ A React cart/checkout process. A cart component that updates the quantity of eac
 ![Bootstrap](https://img.shields.io/badge/bootstrap-^5.0.0--beta3-red?style=flat-square)
 ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 ![Yup](https://img.shields.io/badge/yup-%5E0.32.9-yellow?style=flat-square)
-
-<!--
 ![cypress](https://img.shields.io/badge/cypress-%5E4.14.1-orange?style=flat-square)
-
- -->
 
 ### How to Work App Locally
 
@@ -39,7 +35,13 @@ A React cart/checkout process. A cart component that updates the quantity of eac
 
 > Enter `npm command_name` into your terminal to run scripts below
 
-    * start - starts the production server after a build is created
+```JSON
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "e2e": "cypress open"
+```
 
 # Contributing
 
