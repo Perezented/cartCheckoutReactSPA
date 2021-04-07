@@ -15,3 +15,21 @@
 .text-center {
   text-align: center;
 }
+
+.username {
+  display: flex;
+  align-items: center;
+}
+
+.stateNcountry {
+  display: flex;
+  align-items: center;
+}
+.stateNcountry div label {
+  padding: 0 2%;
+}
+.cctaker {
+  padding: 0;
+  width: 95%;
+  margin: 0 auto;
+}

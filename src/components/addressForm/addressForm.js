@@ -83,7 +83,7 @@ export default function AddressForm() {
 
           <div className="mb-3">
             <label htmlFor="username">Username</label>
-            <div className="input-group">
+            <div className="input-group username">
               <div className="input-group-prepend">
                 <span className="input-group-text">@</span>
               </div>
@@ -140,7 +140,7 @@ export default function AddressForm() {
             />
           </div>
 
-          <div className="row">
+          <div className="row stateNcountry">
             <div className="col-md-5 mb-3">
               <label htmlFor="country">Country</label>
               <select
