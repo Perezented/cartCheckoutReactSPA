@@ -1,18 +1,56 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { SomeContext } from "../../contexts";
 import PaymentInterface from "./paymentInterface";
 import * as yup from "yup";
+import addressFormSchema from "./addressFormSchema";
+import ValidateButtons from "./validateButtons";
 export default function AddressForm() {
   const { addressInfo, setAddressInfo } = useContext(SomeContext);
+  const initialErrors = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    address: "",
+    country: "",
+    state: "",
+    zip: ""
+  };
+  let [errors, setErrors] = useState(initialErrors);
+  let [formData, setFormData] = useState(addressInfo);
+  let [disabled, setDisabled] = useState(true);
   const [paymentDisabled, setPaymentDisabled] = useState(true);
 
   const handleChanges = (e) => {
-    const updatedAddress = {
-      ...addressInfo,
-      [e.target.id]: e.target.value
-    };
-    return setAddressInfo(updatedAddress);
+    const element = e.target;
+
+    setFormData({ ...formData, [element.name]: element.value });
+    console.log(formData);
+
+    yup
+      .reach(addressFormSchema, element.name)
+      .validate(formData[element.name])
+      .then((valid) => {
+        setErrors({ ...errors, [element.name]: "" });
+      })
+      .catch((err) => {
+        setErrors({ ...errors, [element.name]: err.errors[0] });
+      });
   };
+  useEffect(() => {
+    // Checks address form to be all filled out to allow the pay button to show up
+    addressFormSchema.isValid(formData).then((valid) => {
+      if (valid) {
+        setAddressInfo(formData);
+        setDisabled(false);
+        setErrors(initialErrors);
+      } else {
+        setDisabled(true);
+      }
+    });
+  }, [formData]);
+  console.log("address", disabled);
+
   return (
     <div className="container">
       <div className="col-md-9 order-md-1">
@@ -25,13 +63,14 @@ export default function AddressForm() {
                 type="text"
                 className="form-control"
                 id="firstName"
+                name="firstName"
                 placeholder="First Name"
                 onChange={handleChanges}
                 required
               />
-              <div className="invalid-feedback">
+              {/* <div className="invalid-feedback">
                 Valid first name is required.
-              </div>
+              </div> */}
             </div>
             <div className="col-md-6 mb-3">
               <label htmlFor="lastName">Last name</label>
@@ -39,13 +78,14 @@ export default function AddressForm() {
                 type="text"
                 className="form-control"
                 id="lastName"
+                name="lastName"
                 placeholder="Last Name"
                 onChange={handleChanges}
                 required
               />
-              <div className="invalid-feedback">
+              {/* <div className="invalid-feedback">
                 Valid last name is required.
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -59,13 +99,14 @@ export default function AddressForm() {
                 type="text"
                 className="form-control"
                 id="username"
+                name="username"
                 placeholder="Username"
                 onChange={handleChanges}
                 required
               />
-              <div className="invalid-feedback" style={{ width: "100%" }}>
+              {/* <div className="invalid-feedback" style={{ width: "100%" }}>
                 Your username is required.
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -77,12 +118,13 @@ export default function AddressForm() {
               type="email"
               className="form-control"
               id="email"
+              name="email"
               placeholder="you@example.com"
               onChange={handleChanges}
             />
-            <div className="invalid-feedback">
+            {/* <div className="invalid-feedback">
               Please enter a valid email address for shipping updates.
-            </div>
+            </div> */}
           </div>
 
           <div className="mb-3">
@@ -91,13 +133,14 @@ export default function AddressForm() {
               type="text"
               className="form-control"
               id="address"
+              name="address"
               placeholder="1234 Main St"
               required
               onChange={handleChanges}
             />
-            <div className="invalid-feedback">
+            {/* <div className="invalid-feedback">
               Please enter your shipping address.
-            </div>
+            </div> */}
           </div>
 
           <div className="mb-3">
@@ -108,6 +151,7 @@ export default function AddressForm() {
               type="text"
               className="form-control"
               id="address2"
+              name="address2"
               placeholder="Apartment or suite"
               onChange={handleChanges}
             />
@@ -119,30 +163,36 @@ export default function AddressForm() {
               <select
                 className="custom-select d-block w-100"
                 id="country"
+                name="country"
                 required
                 onChange={handleChanges}
               >
-                <option>Choose...</option>
+                <option disabled selected defaultValue>
+                  Choose...
+                </option>
                 <option>United States</option>
               </select>
-              <div className="invalid-feedback">
+              {/* <div className="invalid-feedback">
                 Please select a valid country.
-              </div>
+              </div> */}
             </div>
             <div className="col-md-4 mb-3">
               <label htmlFor="state">State</label>
               <select
                 className="custom-select d-block w-100"
                 id="state"
+                name="state"
                 required
                 onChange={handleChanges}
               >
-                <option>Choose...</option>
+                <option disabled selected defaultValue>
+                  Choose...
+                </option>
                 <option>California</option>
               </select>
-              <div className="invalid-feedback">
+              {/* <div className="invalid-feedback">
                 Please provide a valid state.
-              </div>
+              </div> */}
             </div>
             <div className="col-md-3 mb-3">
               <label htmlFor="zip">Zip</label>
@@ -150,11 +200,12 @@ export default function AddressForm() {
                 type="text"
                 className="form-control"
                 id="zip"
+                name="zip"
                 placeholder=""
                 required
                 onChange={handleChanges}
               />
-              <div className="invalid-feedback">Zip code required.</div>
+              {/* <div className="invalid-feedback">Zip code required.</div> */}
             </div>
           </div>
           <hr className="mb-4" />
@@ -163,6 +214,7 @@ export default function AddressForm() {
               type="checkbox"
               className="custom-control-input"
               id="same-address"
+              name="same-address"
               onChange={handleChanges}
             />
             <label className="custom-control-label" htmlFor="same-address">
@@ -174,20 +226,35 @@ export default function AddressForm() {
               type="checkbox"
               className="custom-control-input"
               id="save-info"
+              name="save-info"
               onChange={handleChanges}
             />
             <label
               className="custom-control-label"
               id="save-info"
+              name="save-info"
               onChange={handleChanges}
             >
               Save this information for next time
             </label>
           </div>
           <hr className="mb-4" />
+          {Object.keys(errors).map((item, key) => {
+            if (errors[item]) {
+              return (
+                <div className="row" key={key}>
+                  <div className="col">
+                    <p style={{ color: "red" }}>{errors[item]}</p>
+                  </div>
+                </div>
+              );
+            }
+          })}
+
           <PaymentInterface
             disabled={{ paymentDisabled, setPaymentDisabled }}
           />
+          <ValidateButtons disabled={disabled || paymentDisabled} />
         </form>
       </div>
     </div>
