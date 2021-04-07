@@ -25,7 +25,6 @@ export default function AddressForm() {
     const element = e.target;
 
     setFormData({ ...formData, [element.name]: element.value });
-    console.log(formData);
 
     yup
       .reach(addressFormSchema, element.name)
@@ -49,7 +48,6 @@ export default function AddressForm() {
       }
     });
   }, [formData]);
-  console.log("address", disabled);
 
   return (
     <div className="container">

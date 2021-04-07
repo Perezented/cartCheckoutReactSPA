@@ -44,7 +44,6 @@ export default function PaymentInterface(props) {
       }
     });
   }, [formData]);
-  console.log("payment", paymentDisabled);
 
   return (
     <div className="container">
