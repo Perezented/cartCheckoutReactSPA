@@ -24,7 +24,7 @@ export default function PaymentInterface(props) {
 
     yup
       .reach(paymentFormSchema, element.name)
-      .validate(formData[element.name])
+      .validate({ ...formData, [element.name]: element.value }[element.name])
       .then((valid) => {
         setErrors({ ...errors, [element.name]: "" });
       })
